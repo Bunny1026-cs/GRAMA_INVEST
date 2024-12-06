@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <header>
+        <h1>Welcome to Learn Finance</h1>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button className="cta-button">Get Started</button>
+      </header>
+      <main>
+        <section id="about">
+          <h2>About Us</h2>
+          <p>Learn Finance is your go-to platform for mastering financial concepts and skills.</p>
+        </section>
+        <section id="courses">
+          <h2>Our Courses</h2>
+          <p>Explore our wide range of courses designed to help you understand finance better.</p>
+        </section>
+        <section id="contact">
+          <h2>Contact Us</h2>
+          <p>Have questions? Reach out to us at contact@learnfinance.com.</p>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2023 Learn Finance. All rights reserved.</p>
+        <button className="cta-button">Subscribe</button>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
