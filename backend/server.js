@@ -26,7 +26,7 @@ app.use(cors({ origin: ['http://localhost:3000'] })); // Add allowed origins
 // Static files and views setup
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, '../views')); // Ensure this path is correct
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes 
@@ -35,21 +35,44 @@ app.use("/", userRoutes);
 // Render Views
 app.get('/', (req, res) => res.render('home'));
 app.get('/stockMarket', (req, res) => res.render('stockMarket'));
+app.get('/BeginnersGuideS', (req, res) => res.render('BeginnersGuideS')); // Ensure this line is correct
+app.get('/BeginnersGuideC', (req, res) => res.render('BeginnersGuideC')); // Ensure this line is correct
+app.get('/newsS', (req, res) => res.render('newsS')); // Ensure this line is correct
+app.get('/livechartsS', (req, res) => res.render('livechartsS')); // Ensure this line is correct
+app.get('/dmat', (req, res) => res.render('dmat'));
+app.get('/investmenS', (req, res) => res.render('investmenS'));
+app.get('/ipo', (req, res) => res.render('ipo'));
+app.get('/etf', (req, res) => res.render('etf'));
+app.get('/fo', (req, res) => res.render('fo'));
+app.get('/disclaimer', (req, res) => res.render('disclaimer'));
+app.get('/cinvest', (req, res) => res.render('cinvest'));
+app.get('/cdisclaimer', (req, res) => res.render('cdisclaimer'));
+
+app.get('/mbeginner', (req, res) => {
+    console.log('Rendering mbeginner view');
+    res.render('mbeginner');
+});
+app.get('/sip', (req, res) => res.render('sip'));
+app.get('/lc', (req, res) => res.render('lc'));
+app.get('/lcmc', (req, res) => res.render('lcmc'));
+app.get('/mc', (req, res) => res.render('mc'));
+app.get('/sc', (req, res) => res.render('sc'));
+app.get('/minvest', (req, res) => res.render('minvest'));
+app.get('/mdisclaimer', (req, res) => res.render('mdisclaimer'));
+ // Ensure this line is correct
+
+
+
+
+app.get('/government', (req, res) => res.render('government'));
+app.get('/fd_and_rd', (req, res) => res.render('fd_and_rd'));
+
+
 app.get('/MutualFunds', (req, res) => res.render('mutualFunds'));
-app.get('/MutualFunds/BeginnersGuide', (req, res) => res.render('beginnersGuide'));
-app.get('/MutualFunds/SIPCalculator', (req, res) => res.render('sipCalculator'));
-app.get('/MutualFunds/LargeCap', (req, res) => res.render('largeCap'));
-app.get('/MutualFunds/LargeMidCap', (req, res) => res.render('largeMidCap'));
-app.get('/MutualFunds/MidCap', (req, res) => res.render('midCap'));
-app.get('/MutualFunds/SmallCap', (req, res) => res.render('smallCap'));
-app.get('/MutualFunds/Disclaimer', (req, res) => res.render('disclaimer'));
+
 app.get('/Cryptocurrency', (req, res) => res.render('cryptocurrency'));
-app.get('/Cryptocurrency/BeginnersGuide', (req, res) => res.render('beginnersGuide'));
-app.get('/Cryptocurrency/Invest', (req, res) => res.render('invest'));
-app.get('/Cryptocurrency/Disclaimer', (req, res) => res.render('disclaimer'));
 app.get('/GovernmentSchemes', (req, res) => res.render('governmentSchemes'));
 app.get('/FixedDeposit', (req, res) => res.render('fixedDeposit'));
-app.get('/marketAnalysis', (req, res) => res.render('marketAnalysis'));
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
@@ -67,6 +90,7 @@ const upload = multer({ storage });
 app.post('/upload-profile-photo', verifyToken, upload.single('profilePhoto'), async (req, res) => {
     try {
         const userId = req.user.id;
+        console.log(`User ID: ${userId}`); // Add logging
         if (!req.file) {
             return res.status(400).json({ message: 'No file uploaded' });
         }
@@ -83,7 +107,7 @@ app.post('/upload-profile-photo', verifyToken, upload.single('profilePhoto'), as
         res.status(500).json({ message: 'Profile photo upload failed' });
     }
 });
-
+ 
 // Trigger Python Voice Bot
 app.post('/start-voice-bot', (req, res) => {
     const scriptPath = path.join(__dirname, 'path/to/main.py');

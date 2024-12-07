@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const { uploadProfilePhoto } = require('../controllers/user');
 const { verifyToken } = require('../middleware/auth');
-const User = require('../models/User'); // Corrected path for User model
+const User = require('../models/user'); // Corrected path for User model
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -58,6 +58,7 @@ router.post('/login', async (req, res) => {
 router.post('/upload-profile-photo', verifyToken, upload.single('profilePhoto'), async (req, res) => {
     try {
         const userId = req.user.id;
+        console.log(`User ID: ${userId}`); // Add logging
         if (!req.file) {
             return res.status(400).json({ message: 'No file uploaded' });
         }
