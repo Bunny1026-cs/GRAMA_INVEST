@@ -1,162 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRAMA INVEST</title>
+    <title>Grama Invest</title>
     <style>
-      * {  
-    box-sizing: border-box;  
-    margin: 0;  
-    padding: 0;  
-  }  
-  
-  body {  
-    background-color: #121316;  
-    color: white;  
-    font-family: 'Arial', sans-serif;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    flex-direction: column;  
-    min-height: 100vh;  
-    animation: fadeIn 1s ease-in-out;
-  }  
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  header {
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(90deg, #1f1c2c, #928dab);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideDown 1s ease-in-out;
-  }
-  
-  @keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-  }
-  
-  nav {  
-    display: flex;  
-    justify-content: center;
-    margin-top: 10px;
-  }  
-  
-  nav button {  
-    margin: 0 5px;  
-    padding: 10px;  
-    background: #444;  
-    border: none;  
-    color: white;  
-    cursor: pointer;  
-    border-radius: 5px;  
-    transition: background 0.3s, transform 0.3s;  
-  }  
-  
-  nav button:hover {  
-    background: #9fbbc1;  
-    transform: scale(1.1);
-  }  
-  
-  .search-bar {  
-    padding: 10px;  
-    border: 1px solid #444;  
-    border-radius: 5px;  
-    background: #222426;  
-    color: white;  
-    width: 200px;  
-    margin-left: 20px;  
-    transition: width 0.3s;
-    box-shadow: 0 0 10px rgba(135, 176, 233, 0.911);
+        
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.search1-bar{
 
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.911);
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #0d1b2a; 
+    color: #e0e1dd; 
+    line-height: 1.6;
 }
-  
-  .search-bar:focus {
-    width: 250px;
-  }
-  
-  .container {  
-    text-align: center;  
-    animation: fadeIn 2s ease-in-out;
-  }  
-  
-  .button-container {  
-    margin-top: 20px;  
-  }  
-  
-  .glow-on-hover {  
-    background-color: transparent;  
-    border: 2px solid rgb(206, 168, 168);  
-    color: white;  
-    padding: 15px 30px;  
-    font-size: 20px;  
-    margin: 10px;  
-    cursor: pointer;  
-    border-radius: 5px;  
-    outline: none;  
-    position: relative;  
-    overflow: hidden;  
-    transition: color 0.4s, transform 0.3s;
-    box-shadow: 0 0 10px rgba(234, 44, 164, 0.911);
-}   
-  
-  .glow-on-hover::before {  
-    content: "";  
-    position: absolute;  
-    top: 50%;  
-    left: 50%;  
-    width: 300%;  
-    height: 300%;  
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.0));  
-    transform: translate(-50%, -50%) scale(0);  
-    border-radius: 50%;  
-    transition: transform 0.4s;  
-  }  
-  
-  .glow-on-hover:hover {  
-    color: #00ff00;  
-    transform: scale(1.1);
-  }  
-  
-  .glow-on-hover:hover::before {  
-    transform: translate(-50%, -50%) scale(1);  
-  }  
-  
-  .content-area {  
-    margin-top: 20px;  
-    padding: 20px;  
-    border: 1px solid #444;  
-    border-radius: 8px;  
-    background-color: rgba(255, 255, 255, 0.1);  
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  footer {
-    margin-top: 20px;
-    padding: 10px;
-    background: #1f1c2c;
-    width: 100%;
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(90deg, #57534e, #5c0d46); 
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #333;
+}
+
+.hero {
     text-align: center;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideUp 1s ease-in-out;
-  }
+    padding: rem 1rem;
+    background: linear-gradient(90deg, #081a29, #696a77);
+    color: #fcfaf2;
+   
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+
+.logo-container {
+    margin: 1.5rem 0;
+    text-align: center;
+    
+}
+
+.logo-container img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.logo-container p {
+    font-size: 1rem;
+    color: #e0e1dd;
   
-  @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-  
-  .cta-button {
-    margin-top: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.button-card {
+    background: #14213d; 
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    border: 2px solid rgb(245, 240, 240); 
+    max-width: 350px;
+    flex: 1 1 30%;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(234, 44, 164, 20);
+}
+
+.button-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.button-card h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #ffeb3b;
+}
+
+.button-card p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.button-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(230, 224, 225, 0.7); 
+}
+
+.button-card:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(221, 218, 218, 0.2); 
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.info {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #1c2541;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #e0e1dd;
+}
+
+.info p {
+    font-size: 1rem;
+}
+
+.facts {
+    padding: 2rem 1rem;
+    background: #0d1b2a;
+    color: #e0e1dd;
+}
+
+.facts h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #ffeb3b;
+}
+
+.facts ul {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.facts li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.auth-buttons button {
+    margin: 0 5px;
     padding: 10px 20px;
     background: #444;
     border: none;
@@ -164,111 +202,144 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s, transform 0.3s;
-  }
-  
-  .cta-button:hover {
+}
+
+.auth-buttons button:hover {
     background: #00ff00;
     transform: scale(1.1);
-  }
+}
 
-    .auth-buttons {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
 
-    .auth-buttons button {
-        margin: 0 5px;
-        padding: 10px 20px;
-        background: #444;
-        border: none;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s, transform 0.3s;
-    }
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    color: black;
+    border-radius: 10px;
+}
 
-    .auth-buttons button:hover {
-        background: #00ff00;
-        transform: scale(1.1);
-    }
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-    /* Modal styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-        padding-top: 60px;
-    }
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        color: black;
-    }
+.profile-section {
+    position: absolute;
+    top: 20px;
+    right: -300px; /* Start off-screen */
+    width: 250px;
+    background: #444;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+}
 
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+.profile-section.show {
+    right: 20px; /* Slide in */
+}
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.profile-section a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+.profile-section a:hover {
+    background: #00ff00;
+}
     </style>
-
-<script src="https://widget.cxgenie.ai/widget.js" data-aid="bc88ed95-d796-4b33-9650-4dac3481462b"
-		
-data-lang="en"></script>
 </head>
+<body>
 
-<body> 
-    <header>
+    <header class="navbar">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
         <div class="auth-buttons">
             <button onclick="showModal('signupModal')">Sign Up</button>
             <button onclick="showModal('loginModal')">Login</button>
+            <button onclick="toggleProfileSection()">Profile</button>
         </div>
-        <nav>  
-        <input type="text" class="search-bar" placeholder="Search..." >
-        <button class="search1-bar" onclick="showContent('about')">About Us</button>  
-        <button class="search1-bar" onclick="showContent('contact')">Contact</button>  
-        <button class="search1-bar" onclick="showContent('faq')">FAQ</button>  
-        </nav>
+        <div id="profileSection" class="profile-section">
+            <a href="#profile">View Profile</a>
+            <a href="#settings">Settings</a>
+            <a href="#logout">Logout</a>
+        </div>
     </header>
-    <br><br>
-    <div class="container"> 
-        <h1>GRAMA INVEST </h1>
-          
-        <div class="button-container">  
-            <button class="glow-on-hover" onclick="showContent('stockMarket')">Stock Market</button>  
-            <button class="glow-on-hover" onclick="showContent('mutualFunds')">Mutual Funds</button>  
-            <button class="glow-on-hover" onclick="showContent('cryptocurrency')">Cryptocurrency & Bitcoin</button>  
-            <button class="glow-on-hover" onclick="showContent('governmentSchemes')">Government Schemes</button>  
-            <button class="glow-on-hover" onclick="showContent('fixedRecurring')">Fixed Deposit & Recurring Deposit</button>  
-        </div>  
-        <br><br>
-        <img src="Grama.jpg" alt="gramainvest" height="200px">
-            <br><br>
-        
-        <div id="content" class="content-area">  
-            <p>Select a topic to see the details here.</p>  
-        </div>  
-    </div>  
+
+    <section id="home" class="hero">
+        <h1>Welcome to Grama Invest</h1>
+        <p>Your guide to financial literacy and investment options.</p>
+    </section>
+
+
+    <div class="logo-container">
+        <img src="gramainvest.jpg" alt="Grama Invest Logo">
+        <p>Empowering rural India with financial knowledge.</p>
+    </div>
+
+  
+    <section class="buttons-container">
+        <div class="button-card">
+            <img src="stock.jpg" alt="Stock Market">
+            <h3>Stock Market</h3>
+            <p>Learn about stock market investments and strategies.</p>
+        </div>
+        <div class="button-card">
+            <img src="mutual fund.jpg" alt="Mutual Fund">
+            <h3>Mutual Fund</h3>
+            <p>Discover how mutual funds can grow your wealth.</p>
+        </div>
+        <div class="button-card">
+            <img src="crypto.jpg" alt="Cryptocurrency">
+            <h3>Cryptocurrency & Bitcoin</h3>
+            <p>Explore the world of cryptocurrency and blockchain.</p>
+        </div>
+        <div class="button-card">
+            <img src="govt.jpg" alt="Government Schemes">
+            <h3>Govt. Investment Schemes</h3>
+            <p>Understand government-backed savings options.</p>
+        </div>
+        <div class="button-card">
+            <img src="fd & rd.jpg" alt="FD & RD">
+            <h3>FD & RD</h3>
+            <p>Learn the benefits of fixed and recurring deposits.</p>
+        </div>
+    </section>
+
+    <section class="info">
+        <p>A SEBI study reveals that only 27 per cent of the Indian population is financially literate, with even lower rates in rural areas and among women. Cultural and societal barriers significantly hinder many women from participating in financial decisions.</p>
+    </section>
 
     <!-- Sign Up Modal -->
     <div id="signupModal" class="modal">
@@ -302,40 +373,6 @@ data-lang="en"></script>
         </div>
     </div>
 
-    <script>  
-        function showContent(topic) {  
-            const contentArea = document.getElementById('content');  
-            let content;  
-
-            switch(topic) {  
-                case 'stockMarket':  
-                    content = `  
-                        <h2>Stock Market</h2>  ` 
-                    break;  
-                case 'mutualFunds':  
-                    content = `  
-                        <h2>Mutual Funds</h2>  `
-                    break;  
-                case 'cryptocurrency':  
-                    content = `  
-                        <h2>Cryptocurrency & Bitcoin</h2>  `
-                    break;  
-                case 'governmentSchemes':  
-                    content = `  
-                        <h2>Government Schemes</h2>  `
-                    break;  
-                case 'fixedRecurring':  
-                    content = `  
-                        <h2>Fixed Deposit & Recurring Deposit</h2>  `
-                    break;  
-                default:  
-                    content = <p>Select a topic to see the details here.</p>;  
-            }  
-
-            contentArea.innerHTML = content;  
-        }  
-    </script>  
-
     <script>
         function showModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -345,52 +382,74 @@ data-lang="en"></script>
             document.getElementById(modalId).style.display = "none";
         }
 
+        function toggleProfileSection() {
+            const profileSection = document.getElementById('profileSection');
+            profileSection.classList.toggle('show');
+        }
+
         window.onclick = function(event) {
+            const profileSection = document.getElementById('profileSection');
+            if (!profileSection.contains(event.target) && !event.target.matches('.auth-buttons button')) {
+                profileSection.classList.remove('show');
+            }
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
             }
         }
 
-        document.getElementById('signupForm').onsubmit = function(event) {
+        document.getElementById('signupForm').onsubmit = async function(event) {
             event.preventDefault();
-            // Add your sign-up logic here
-            closeModal('signupModal');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Sign up successful');
+                    closeModal('signupModal');
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error during sign up:', error); // Log the error details
+                alert('An error occurred');
+            }
         }
 
-        document.getElementById('loginForm').onsubmit = function(event) {
+        document.getElementById('loginForm').onsubmit = async function(event) {
             event.preventDefault();
-            // Add your login logic here
-            closeModal('loginModal');
-        }
-    </script>
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
 
-    <script>
-        function showContent(topic) {
-            const content = document.getElementById('content');
-            switch (topic) {
-                case 'stockMarket':
-                    window.location.href = '/stockMarket';
-                    break;
-                case 'mutualFunds':
-                    window.location.href = '/MutualFunds';
-                    break;
-                case 'cryptocurrency':
-                    window.location.href = '/Cryptocurrency';
-                    break;
-                case 'governmentSchemes':
-                    window.location.href = '/GovernmentSchemes';
-                    break;
-                case 'fixedRecurring':
-                    window.location.href = '/FixedDeposit';
-                    break;
-                case 'profile':
-                    window.location.href = '/profile';
-                    break;
-                default:
-                    window.location.href = '/';
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Login successful');
+                    closeModal('loginModal');
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert('An error occurred');
             }
         }
     </script>
 </body>
-
 </html>
