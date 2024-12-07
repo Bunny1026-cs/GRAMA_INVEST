@@ -1,6 +1,19 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+const upload = multer({ storage });
 
 const signUp = async (req, res) => {
   const { name, email, password } = req.body;
@@ -47,4 +60,17 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login };
+const uploadProfilePhoto = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const profilePhoto = req.file.path;
+
+    const user = await User.findByIdAndUpdate(userId, { profilePhoto }, { new: true });
+
+    res.status(200).json({ result: user });
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong' });
+  }
+};
+
+module.exports = { signUp, login, uploadProfilePhoto, upload };

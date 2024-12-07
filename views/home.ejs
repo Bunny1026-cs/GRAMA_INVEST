@@ -1,282 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grama Invest</title>
     <style>
-        
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #0d1b2a; 
-    color: #e0e1dd; 
-    line-height: 1.6;
-}
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #0d1b2a;
+            color: #e0e1dd;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.6rem 2rem;
+            background: linear-gradient(90deg, #57534e, #5c0d46);
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.6rem 2rem;
-    background: linear-gradient(90deg, #57534e, #5c0d46); 
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
-.navbar nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+        .navbar a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
 
-.navbar a {
-    color: #000;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease;
-}
+        .navbar a:hover {
+            color: #333;
+        }
 
-.navbar a:hover {
-    color: #333;
-}
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: linear-gradient(90deg, #081a29, #696a77);
+            color: #fcfaf2;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-.hero {
-    text-align: center;
-    padding: rem 1rem;
-    background: linear-gradient(90deg, #081a29, #696a77);
-    color: #fcfaf2;
-   
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+        .hero p {
+            font-size: 1.2rem;
+        }
 
-.hero p {
-    font-size: 1.2rem;
-}
+        .logo-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
 
+        .logo-container img {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
 
-.logo-container {
-    margin: 1.5rem 0;
-    text-align: center;
-    
-}
+        .logo-container p {
+            font-size: 1rem;
+            color: #e0e1dd;
+        }
 
-.logo-container img {
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 1rem;
-}
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 1rem;
+        }
 
-.logo-container p {
-    font-size: 1rem;
-    color: #e0e1dd;
-  
-}
+        .button-card {
+            background: #14213d;
+            border-radius: 10px;
+            width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+            border: 2px solid rgb(245, 240, 240);
+            max-width: 350px;
+            flex: 1 1 30%;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(234, 44, 164, 20);
+            cursor: pointer;
+            /* Add cursor pointer to indicate clickable */
+        }
 
-.buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 1rem;
-}
+        .button-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-.button-card {
-    background: #14213d; 
-    border-radius: 10px;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    padding: 1.5rem 1rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #fff;
-    border: 2px solid rgb(245, 240, 240); 
-    max-width: 350px;
-    flex: 1 1 30%;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 10px rgba(234, 44, 164, 20);
-}
+        .button-card h3 {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #ffeb3b;
+        }
 
-.button-card img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+        .button-card p {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
 
-.button-card h3 {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    color: #ffeb3b;
-}
+        .button-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(230, 224, 225, 0.7);
+        }
 
-.button-card p {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-}
+        .button-card:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(221, 218, 218, 0.2);
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+        }
 
-.button-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(230, 224, 225, 0.7); 
-}
+        .info {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #1c2541;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #e0e1dd;
+            animation: slideIn 1s ease-in-out;
+        }
 
-.button-card:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(221, 218, 218, 0.2); 
-    z-index: -1;
-    transition: all 0.3s ease-in-out;
-}
+        .info p {
+            font-size: 1rem;
+        }
 
+        .facts {
+            padding: 2rem 1rem;
+            background: #0d1b2a;
+            color: #e0e1dd;
+        }
 
-.info {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #1c2541;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    color: #e0e1dd;
-}
+        .facts h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: #ffeb3b;
+        }
 
-.info p {
-    font-size: 1rem;
-}
+        .facts ul {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
 
-.facts {
-    padding: 2rem 1rem;
-    background: #0d1b2a;
-    color: #e0e1dd;
-}
+        .facts li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
 
-.facts h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    color: #ffeb3b;
-}
+        .auth-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
 
-.facts ul {
-    max-width: 800px;
-    margin: 0 auto;
-    list-style: disc;
-    padding-left: 1.5rem;
-}
+        .auth-buttons button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background: #444;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
 
-.facts li {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-}
+        .auth-buttons button:hover {
+            background: #00ff00;
+            transform: scale(1.1);
+        }
 
-.auth-buttons {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
+        .form-card {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1c2541;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-.auth-buttons button {
-    margin: 0 5px;
-    padding: 10px 20px;
-    background: #444;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.3s;
-}
+        .form-card.active {
+            display: block;
+        }
 
-.auth-buttons button:hover {
-    background: #00ff00;
-    transform: scale(1.1);
-}
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            text-align: center;
+        }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
+        .profile-section {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            /* Hidden by default */
+            width: 300px;
+            height: 100%;
+            background: #1c2541;
+            padding: 2rem;
+            border-radius: 10px 0 0 10px;
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #e0e1dd;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    color: black;
-    border-radius: 10px;
-}
+        .profile-section.active {
+            right: 0;
+            /* Slide in */
+        }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+        .profile-section img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+        .profile-section input[type="file"] {
+            display: none;
+        }
 
-.profile-section {
-    position: absolute;
-    top: 20px;
-    right: -300px; /* Start off-screen */
-    width: 250px;
-    background: #444;
-    color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease-in-out;
-}
+        .profile-section label {
+            background: #444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
 
-.profile-section.show {
-    right: 20px; /* Slide in */
-}
+        .profile-section label:hover {
+            background: #00ff00;
+            transform: scale(1.1);
+        }
 
-.profile-section a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px 0;
-}
+        .profile-section .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            text-align: center;
+        }
 
-.profile-section a:hover {
-    background: #00ff00;
-}
+        .about-section {
+            padding: 4rem 2rem;
+            background-color: #1c2541;
+            color: #e0e1dd;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header class="navbar">
@@ -286,14 +360,9 @@ body {
             <a href="#contact">Contact Us</a>
         </nav>
         <div class="auth-buttons">
-            <button onclick="showModal('signupModal')">Sign Up</button>
-            <button onclick="showModal('loginModal')">Login</button>
-            <button onclick="toggleProfileSection()">Profile</button>
-        </div>
-        <div id="profileSection" class="profile-section">
-            <a href="#profile">View Profile</a>
-            <a href="#settings">Settings</a>
-            <a href="#logout">Logout</a>
+            <button onclick="showForm('signupFormCard')">Sign Up</button>
+            <button onclick="showForm('loginFormCard')">Login</button>
+            <button onclick="toggleProfile()">Profile</button>
         </div>
     </header>
 
@@ -308,19 +377,19 @@ body {
         <p>Empowering rural India with financial knowledge.</p>
     </div>
 
-  
+
     <section class="buttons-container">
-        <div class="button-card">
+        <div class="button-card" onclick="window.location.href='/stockMarket'">
             <img src="stock.jpg" alt="Stock Market">
             <h3>Stock Market</h3>
             <p>Learn about stock market investments and strategies.</p>
         </div>
-        <div class="button-card">
-            <img src="mutual fund.jpg" alt="Mutual Fund">
+        <div class="button-card" onclick="window.location.href='/mutualFunds'">
+            <img src="mutualfund.jpg" alt="Mutual Fund">
             <h3>Mutual Fund</h3>
             <p>Discover how mutual funds can grow your wealth.</p>
         </div>
-        <div class="button-card">
+        <div class="button-card" onclick="window.location.href='/cryptocurrency'">
             <img src="crypto.jpg" alt="Cryptocurrency">
             <h3>Cryptocurrency & Bitcoin</h3>
             <p>Explore the world of cryptocurrency and blockchain.</p>
@@ -338,118 +407,150 @@ body {
     </section>
 
     <section class="info">
-        <p>A SEBI study reveals that only 27 per cent of the Indian population is financially literate, with even lower rates in rural areas and among women. Cultural and societal barriers significantly hinder many women from participating in financial decisions.</p>
+        <p>A SEBI study reveals that only 27 per cent of the Indian population is financially literate, with even lower
+            rates in rural areas and among women. Cultural and societal barriers significantly hinder many women from
+            participating in financial decisions.</p>
     </section>
 
-    <!-- Sign Up Modal -->
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('signupModal')">&times;</span>
-            <h2>Sign Up</h2>
-            <form id="signupForm" method="POST" action="/signup">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+    <section class="about-section" id="about">
+        <h2>About Us</h2>
+        <p>Grama Invest is dedicated to empowering rural India with financial knowledge and investment options. Our mission is to bridge the financial literacy gap and provide accessible resources for everyone.</p>
+    </section>
+
+    <section id="profileSection" class="profile-section">
+        <button class="close-btn" onclick="toggleProfile()">&times;</button>
+        <h2>Profile</h2>
+        <img id="profileImage" src="default-profile.png" alt="Profile Photo">
+        <form id="profileForm" method="POST" action="/upload-profile-photo" enctype="multipart/form-data">
+            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" onchange="previewProfilePhoto()">
+            <label for="profilePhoto">Upload Profile Photo</label>
+            <button type="submit">Save</button>
+        </form>
+    </section>
+
+    <div id="signupFormCard" class="form-card">
+        <button class="close-btn" onclick="closeForm('signupFormCard')">&times;</button>
+        <h2>Sign Up</h2>
+        <form id="signupForm" method="POST" action="/signup">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Sign Up</button>
+        </form>
     </div>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm" method="POST" action="/login">
-                <label for="email">Email:</label>
-                <input type="email" id="loginEmail" name="email" required><br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="loginPassword" name="password" required><br><br>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+    <div id="loginFormCard" class="form-card">
+        <button class="close-btn" onclick="closeForm('loginFormCard')">&times;</button>
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="/login">
+            <label for="email">Email:</label>
+            <input type="email" id="loginEmail" name="email" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="loginPassword" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
     </div>
 
     <script>
-        function showModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
+        function showForm(formId) {
+            document.getElementById('signupFormCard').classList.remove('active');
+            document.getElementById('loginFormCard').classList.remove('active');
+            document.getElementById(formId).classList.add('active');
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+        function closeForm(formId) {
+            document.getElementById(formId).classList.remove('active');
         }
 
-        function toggleProfileSection() {
-            const profileSection = document.getElementById('profileSection');
-            profileSection.classList.toggle('show');
-        }
-
-        window.onclick = function(event) {
-            const profileSection = document.getElementById('profileSection');
-            if (!profileSection.contains(event.target) && !event.target.matches('.auth-buttons button')) {
-                profileSection.classList.remove('show');
-            }
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
-
-        document.getElementById('signupForm').onsubmit = async function(event) {
+        document.getElementById('signupForm').onsubmit = async function (event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
             try {
                 const response = await fetch('/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ name, email, password })
+                    body: JSON.stringify(formData)
                 });
-
-                const data = await response.json();
+                const result = await response.json();
                 if (response.ok) {
-                    alert('Sign up successful');
-                    closeModal('signupModal');
+                    alert('Sign-up successful!');
+                    closeForm('signupFormCard');
                 } else {
-                    alert(data.message);
+                    alert(`Sign-up failed: ${result.message}`);
                 }
             } catch (error) {
-                console.error('Error during sign up:', error); // Log the error details
-                alert('An error occurred');
+                console.error('Error:', error);
+                alert('Sign-up failed');
             }
         }
 
-        document.getElementById('loginForm').onsubmit = async function(event) {
+        document.getElementById('loginForm').onsubmit = async function (event) {
             event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
+            const formData = {
+                email: document.getElementById('loginEmail').value,
+                password: document.getElementById('loginPassword').value
+            };
             try {
                 const response = await fetch('/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify(formData)
                 });
-
-                const data = await response.json();
+                const result = await response.json();
                 if (response.ok) {
-                    alert('Login successful');
-                    closeModal('loginModal');
+                    alert('Login successful!');
+                    closeForm('loginFormCard');
                 } else {
-                    alert(data.message);
+                    alert(`Login failed: ${result.message}`);
                 }
             } catch (error) {
-                alert('An error occurred');
+                console.error('Error:', error);
+                alert('Login failed');
             }
         }
+
+        function previewProfilePhoto() {
+            const file = document.getElementById('profilePhoto').files[0];
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                document.getElementById('profileImage').src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById('profileForm').onsubmit = function (event) {
+            event.preventDefault();
+            // Add your profile photo upload logic here
+        }
+
+        function toggleProfile() {
+            const profileSection = document.getElementById('profileSection');
+            profileSection.classList.toggle('active');
+        }
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
-</html>
+
+</html> 
