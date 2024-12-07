@@ -6,6 +6,15 @@ const path = require('path');
 const { exec } = require('child_process');
 const connectDB = require('./connect');
 const userRoutes = require("./routes/user");
+const multer = require('multer');
+const { verifyToken } = require('./middleware/auth'); // Add this line
+const User = require('./models/User'); // Add this line
+
+const fs = require('fs');
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
 const app = express();
 
@@ -40,6 +49,40 @@ app.get('/Cryptocurrency/Invest', (req, res) => res.render('invest'));
 app.get('/Cryptocurrency/Disclaimer', (req, res) => res.render('disclaimer'));
 app.get('/GovernmentSchemes', (req, res) => res.render('governmentSchemes'));
 app.get('/FixedDeposit', (req, res) => res.render('fixedDeposit'));
+app.get('/marketAnalysis', (req, res) => res.render('marketAnalysis'));
+
+// Multer setup for file uploads
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, 'uploads'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    }
+});
+
+const upload = multer({ storage });
+
+// Upload profile photo route
+app.post('/upload-profile-photo', verifyToken, upload.single('profilePhoto'), async (req, res) => {
+    try {
+        const userId = req.user.id;
+        if (!req.file) {
+            return res.status(400).json({ message: 'No file uploaded' });
+        }
+        const profilePhotoUrl = `/uploads/${req.file.filename}`;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        user.profilePhoto = profilePhotoUrl;
+        await user.save();
+        res.status(200).json({ message: 'Profile photo uploaded successfully', profilePhoto: profilePhotoUrl });
+    } catch (error) {
+        console.error('Error uploading profile photo:', error);
+        res.status(500).json({ message: 'Profile photo upload failed' });
+    }
+});
 
 // Trigger Python Voice Bot
 app.post('/start-voice-bot', (req, res) => {

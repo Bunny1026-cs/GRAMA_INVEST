@@ -18,6 +18,19 @@
             color: #e0e1dd;
             line-height: 1.6;
             scroll-behavior: smooth;
+            position: relative;
+        }
+
+        .cursor-effect {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 255, 0, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, opacity 0.1s ease;
+            opacity: 0.8;
         }
 
         .navbar {
@@ -192,7 +205,7 @@
 
         .auth-buttons {
             position: absolute;
-            top: 20px;
+            top: 5px;
             right: 20px;
         }
 
@@ -215,7 +228,7 @@
         .form-card {
             display: none;
             position: absolute;
-            top: 50%;
+            top: 18%;
             left: 50%;
             transform: translate(-50%, -50%);
             background: #1c2541;
@@ -348,6 +361,232 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .navbar nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .button-card {
+                width: 100%;
+                max-width: none;
+            }
+
+            .info {
+                padding: 1rem;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+
+            .auth-buttons {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .about-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-section p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: #1c2541;
+            padding: 2rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.active {
+            display: block;
+            transform: translateX(0);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #e0e1dd;
+            text-decoration: none;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .sidebar a:hover {
+            color: #00ff00;
+        }
+
+        .close-sidebar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        .contact-section {
+            padding: 4rem 2rem;
+            background-color: #1c2541;
+            color: #e0e1dd;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-button {
+            position: absolute;
+            top: 5px;
+            right: 20px;
+        }
+
+        .profile-button button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background: #444;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .profile-button button:hover {
+            background: #00ff00;
+            transform: scale(1.1);
+        }
+
+        .profile-section button,
+        .form-card button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            background: #444;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .profile-section button:hover,
+        .form-card button:hover {
+            background: #00ff00;
+            transform: scale(1.1);
+        }
+
+        .form-card input[type="text"],
+        .form-card input[type="email"],
+        .form-card input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #1c2541;
+            color: #e0e1dd;
+            font-size: 1rem;
+        }
+
+        .form-card input[type="text"]:focus,
+        .form-card input[type="email"]:focus,
+        .form-card input[type="password"]:focus {
+            border-color: #00ff00;
+            outline: none;
+        }
     </style>
     <script src="https://widget.cxgenie.ai/widget.js" data-aid="bc88ed95-d796-4b33-9650-4dac3481462b"
 		
@@ -355,19 +594,34 @@
 </head>
 
 <body>
+    <div class="cursor-effect" id="cursorEffect1"></div>
+    <div class="cursor-effect" id="cursorEffect2"></div>
+    <div class="cursor-effect" id="cursorEffect3"></div>
+    <div class="cursor-effect" id="cursorEffect4"></div>
+    <div class="cursor-effect" id="cursorEffect5"></div>
 
     <header class="navbar">
+        <span class="menu-icon" onclick="toggleSidebar()">&#9776;</span>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#contact">Contact Us</a>
         </nav>
-        <div class="auth-buttons">
+        <div class="auth-buttons" id="authButtons">
             <button onclick="showForm('signupFormCard')">Sign Up</button>
             <button onclick="showForm('loginFormCard')">Login</button>
+        </div>
+        <div class="profile-button" id="profileButton" style="display: none;">
             <button onclick="toggleProfile()">Profile</button>
         </div>
     </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()">&times;</button>
+        <a href="#home" onclick="toggleSidebar()">Home</a>
+        <a href="#about" onclick="toggleSidebar()">About</a>
+        <a href="#contact" onclick="toggleSidebar()">Contact Us</a>
+    </div>
 
     <section id="home" class="hero">
         <h1>Welcome to Grama Invest</h1>
@@ -397,12 +651,12 @@
             <h3>Cryptocurrency & Bitcoin</h3>
             <p>Explore the world of cryptocurrency and blockchain.</p>
         </div>
-        <div class="button-card">
+        <div class="button-card" onclick="window.location.href='/government'">
             <img src="govt.jpg" alt="Government Schemes">
             <h3>Govt. Investment Schemes</h3>
             <p>Understand government-backed savings options.</p>
         </div>
-        <div class="button-card">
+        <div class="button-card" onclick="window.location.href='/fd_and_rd'">
             <img src="fd & rd.jpg" alt="FD & RD">
             <h3>FD & RD</h3>
             <p>Learn the benefits of fixed and recurring deposits.</p>
@@ -420,6 +674,14 @@
         <p>Grama Invest is dedicated to empowering rural India with financial knowledge and investment options. Our mission is to bridge the financial literacy gap and provide accessible resources for everyone.</p>
     </section>
 
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:contact@gramainvest.com">contact@gramainvest.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/company/gramainvest" target="_blank">linkedin.com/company/gramainvest</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/gramainvest" target="_blank">@gramainvest</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+    </section>
+
     <section id="profileSection" class="profile-section">
         <button class="close-btn" onclick="toggleProfile()">&times;</button>
         <h2>Profile</h2>
@@ -429,6 +691,7 @@
             <label for="profilePhoto">Upload Profile Photo</label>
             <button type="submit">Save</button>
         </form>
+        <button onclick="logout()">Logout</button>
     </section>
 
     <div id="signupFormCard" class="form-card">
@@ -514,6 +777,9 @@
                 if (response.ok) {
                     alert('Login successful!');
                     closeForm('loginFormCard');
+                    localStorage.setItem('user', JSON.stringify(result.user)); // Save user data to localStorage
+                    showProfileButton();
+                    loadProfilePhoto();
                 } else {
                     alert(`Login failed: ${result.message}`);
                 }
@@ -523,21 +789,82 @@
             }
         }
 
+        function showProfileButton() {
+            document.getElementById('authButtons').style.display = 'none';
+            document.getElementById('profileButton').style.display = 'block';
+        }
+
+        function showAuthButtons() {
+            document.getElementById('authButtons').style.display = 'block';
+            document.getElementById('profileButton').style.display = 'none';
+        }
+
+        function loadProfilePhoto() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.profilePhoto) {
+                document.getElementById('profileImage').src = user.profilePhoto;
+            }
+        }
+
+        function logout() {
+            alert('Logged out successfully!');
+            localStorage.removeItem('user'); // Clear user data from localStorage
+            showAuthButtons();
+            window.location.href = '/';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                showProfileButton();
+                loadProfilePhoto();
+            }
+        });
+
         function previewProfilePhoto() {
             const file = document.getElementById('profilePhoto').files[0];
             const reader = new FileReader();
             reader.onloadend = function () {
                 document.getElementById('profileImage').src = reader.result;
+                const user = JSON.parse(localStorage.getItem('user'));
+                user.profilePhoto = reader.result;
+                localStorage.setItem('user', JSON.stringify(user)); // Save to localStorage
             }
             if (file) {
                 reader.readAsDataURL(file);
             }
         }
 
-        document.getElementById('profileForm').onsubmit = function (event) {
+        document.getElementById('profileForm').onsubmit = async function (event) {
             event.preventDefault();
-            // Add your profile photo upload logic here
-        }
+            const formData = new FormData();
+            formData.append('profilePhoto', document.getElementById('profilePhoto').files[0]);
+
+            const user = JSON.parse(localStorage.getItem('user'));
+            const token = user ? user.token : '';
+
+            try {
+                const response = await fetch('/upload-profile-photo', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Profile photo uploaded successfully!');
+                    document.getElementById('profileImage').src = result.profilePhoto;
+                    user.profilePhoto = result.profilePhoto;
+                    localStorage.setItem('user', JSON.stringify(user));
+                } else {
+                    alert(`Profile photo upload failed: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Profile photo upload failed');
+            }
+        };
 
         function toggleProfile() {
             const profileSection = document.getElementById('profileSection');
@@ -553,7 +880,57 @@
                 });
             });
         });
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        document.addEventListener('mousemove', function (e) {
+            const cursorEffects = [
+                document.getElementById('cursorEffect1'),
+                document.getElementById('cursorEffect2'),
+                document.getElementById('cursorEffect3'),
+                document.getElementById('cursorEffect4'),
+                document.getElementById('cursorEffect5')
+            ];
+
+            cursorEffects.forEach((cursorEffect, index) => {
+                setTimeout(() => {
+                    cursorEffect.style.left = e.pageX + 'px';
+                    cursorEffect.style.top = e.pageY + 'px';
+                }, index * 100); // Increase delay for bigger waves
+            });
+        });
+
+        document.addEventListener('mouseleave', function () {
+            const cursorEffects = [
+                document.getElementById('cursorEffect1'),
+                document.getElementById('cursorEffect2'),
+                document.getElementById('cursorEffect3'),
+                document.getElementById('cursorEffect4'),
+                document.getElementById('cursorEffect5')
+            ];
+
+            cursorEffects.forEach(cursorEffect => {
+                cursorEffect.style.opacity = '0';
+            });
+        });
+
+        document.addEventListener('mouseenter', function () {
+            const cursorEffects = [
+                document.getElementById('cursorEffect1'),
+                document.getElementById('cursorEffect2'),
+                document.getElementById('cursorEffect3'),
+                document.getElementById('cursorEffect4'),
+                document.getElementById('cursorEffect5')
+            ];
+
+            cursorEffects.forEach(cursorEffect => {
+                cursorEffect.style.opacity = '0.8';
+            });
+        });
+
     </script>
 </body>
 
-</html> 
+</html>
